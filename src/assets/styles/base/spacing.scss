@@ -1,0 +1,232 @@
+@import '../app/config';
+@import '../app/mixins';
+
+$sizeUnit: rem;
+$marginKey: 'm';
+$paddingKey: 'p';
+$separator: '-';
+$sizes: (('0', 0),
+  ('xxs', 0.125),
+  ('xs', 0.25),
+  ('sm', 0.5),
+  ('md', 1),
+  ('lg', 2),
+  ('xl', 4),
+  ('xxl', 8),
+);
+$positions: (('t', 'top'),
+  ('r', 'right'),
+  ('b', 'bottom'),
+  ('l', 'left'));
+
+@function sizeValue($key, $value) {
+  @return if($key=='none', 0, $value + $sizeUnit);
+}
+
+@each $size in $sizes {
+  $sizeKey: nth($size, 1);
+  $sizeValue: nth($size, 2);
+
+  .#{$marginKey}#{$separator}#{$sizeKey} {
+    margin: sizeValue($sizeKey, $sizeValue);
+  }
+
+  .mx#{$separator}#{$sizeKey} {
+    margin-left: sizeValue($sizeKey, $sizeValue);
+    margin-right: sizeValue($sizeKey, $sizeValue);
+  }
+
+  .my#{$separator}#{$sizeKey} {
+    margin-top: sizeValue($sizeKey, $sizeValue);
+    margin-bottom: sizeValue($sizeKey, $sizeValue);
+  }
+
+  .#{$paddingKey}#{$separator}#{$sizeKey} {
+    padding: sizeValue($sizeKey, $sizeValue);
+  }
+
+  .px#{$separator}#{$sizeKey} {
+    padding-left: sizeValue($sizeKey, $sizeValue);
+    padding-right: sizeValue($sizeKey, $sizeValue);
+  }
+
+  .py#{$separator}#{$sizeKey} {
+    padding-top: sizeValue($sizeKey, $sizeValue);
+    padding-bottom: sizeValue($sizeKey, $sizeValue);
+  }
+
+  @each $position in $positions {
+    $posKey: nth($position, 1);
+    $posValue: nth($position, 2);
+
+    .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+      margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+      padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+    }
+  }
+}
+
+@include screen-sm() {
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$sm-prefix}#{$marginKey}#{$separator}#{$sizeKey} {
+      margin: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$sm-prefix}mx#{$separator}#{$sizeKey} {
+      margin-left: sizeValue($sizeKey, $sizeValue);
+      margin-right: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$sm-prefix}my#{$separator}#{$sizeKey} {
+      margin-top: sizeValue($sizeKey, $sizeValue);
+      margin-bottom: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$sm-prefix}#{$paddingKey}#{$separator}#{$sizeKey} {
+      padding: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$sm-prefix}px#{$separator}#{$sizeKey} {
+      padding-left: sizeValue($sizeKey, $sizeValue);
+      padding-right: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$sm-prefix}py#{$separator}#{$sizeKey} {
+      padding-top: sizeValue($sizeKey, $sizeValue);
+      padding-bottom: sizeValue($sizeKey, $sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$sm-prefix}#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+
+      .#{$sm-prefix}#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+    }
+  }
+}
+
+@include screen-md() {
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$md-prefix}#{$marginKey}#{$separator}#{$sizeKey} {
+      margin: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$md-prefix}#{$paddingKey}#{$separator}#{$sizeKey} {
+      padding: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$md-prefix}px#{$separator}#{$sizeKey} {
+      padding-left: sizeValue($sizeKey, $sizeValue);
+      padding-right: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$md-prefix}py#{$separator}#{$sizeKey} {
+      padding-top: sizeValue($sizeKey, $sizeValue);
+      padding-bottom: sizeValue($sizeKey, $sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$md-prefix}#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+
+      .#{$md-prefix}#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+    }
+  }
+}
+
+@include screen-lg() {
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$lg-prefix}#{$marginKey}#{$separator}#{$sizeKey} {
+      margin: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$lg-prefix}#{$paddingKey}#{$separator}#{$sizeKey} {
+      padding: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$lg-prefix}px#{$separator}#{$sizeKey} {
+      padding-left: sizeValue($sizeKey, $sizeValue);
+      padding-right: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$lg-prefix}py#{$separator}#{$sizeKey} {
+      padding-top: sizeValue($sizeKey, $sizeValue);
+      padding-bottom: sizeValue($sizeKey, $sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$lg-prefix}#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+
+      .#{$lg-prefix}#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+    }
+  }
+}
+
+@include screen-xl() {
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$xl-prefix}#{$marginKey}#{$separator}#{$sizeKey} {
+      margin: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$xl-prefix}#{$paddingKey}#{$separator}#{$sizeKey} {
+      padding: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$xl-prefix}px#{$separator}#{$sizeKey} {
+      padding-left: sizeValue($sizeKey, $sizeValue);
+      padding-right: sizeValue($sizeKey, $sizeValue);
+    }
+
+    .#{$xl-prefix}py#{$separator}#{$sizeKey} {
+      padding-top: sizeValue($sizeKey, $sizeValue);
+      padding-bottom: sizeValue($sizeKey, $sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$xl-prefix}#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+
+      .#{$xl-prefix}#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+@import '../app/config';
+@import '../app/mixins';
+
+.flex {
+  display: flex
+}
+
+.flex-wrap {
+  flex-wrap: wrap
+}
+
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--spread {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &--center {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+
+}
+
+.flex-grid-vertical {
+  display: flex;
+  flex-direction: column
+}
+
+.flex-vertical {
+  flex-direction: column
+}
+
+.flex-auto {
+  flex: 1
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-between,
+.flex-spread {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-baseline {
+  align-self: baseline;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.order-first {
+  order: 0
+}
+
+.order-1 {
+  order: 1
+}
+
+.order-2 {
+  order: 2
+}
+
+.order-3 {
+  order: 3
+}
+
+.order-last {
+  order: 99999
+}
+
+ul.flex-list,
+.flex-list {
+  display: flex;
+  list-style: none;
+
+  > li::before {
+    content: '' !important;
+  }
+
+  li {
+    flex: 1;
+    text-align: center;
+  }
+}

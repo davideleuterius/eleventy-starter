@@ -1,0 +1,16 @@
+@mixin screen-xs { @media (min-width: #{$screen-xs}) {@content;} } // Tiny devices
+@mixin screen-sm { @media (min-width: #{$screen-sm}) {@content;} } // Small devices
+@mixin screen-md { @media (min-width: #{$screen-md}) {@content;} } // Medium devices
+@mixin screen-lg { @media (min-width: #{$screen-lg}) {@content;} } // Large devices
+@mixin screen-xl { @media (min-width: #{$screen-xl}) {@content;} } // Extra large devices
+
+@mixin mobile-only { @media (max-width: #{$screen-md - 1}) {@content;} }
+
+
+@mixin grid-generator($size, $cols) {
+  @for $i from 1 through $cols {
+    .#{$size}col-#{$i} {
+      width: percentage($i / $cols);
+    }
+  }
+}
