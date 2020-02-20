@@ -3,7 +3,7 @@ const yaml = require('js-yaml');
 
 module.exports = function (eleventyConfig) {
 
-  eleventyConfig.addPassthroughCopy({ 'src/static': 'assets'});
+  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets'});
     
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
       return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
