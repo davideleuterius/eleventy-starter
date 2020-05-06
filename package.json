@@ -10,12 +10,12 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.7.6",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "js-yaml": "^3.13.1",
-    "luxon": "^1.22.0"
+    "luxon": "^1.24.1"
   }
 }
