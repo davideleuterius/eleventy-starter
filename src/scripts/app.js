@@ -1,1 +1,1 @@
-console.log( 'I was loaded' );
+console.log( '- initialized -' );

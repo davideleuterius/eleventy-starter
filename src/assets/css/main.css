@@ -663,7 +663,7 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .l-grid--5up {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -799,19 +799,19 @@ ul.flex-list li,
   text-align: center;
 }
 
-.push-top {
+.push--top {
   margin-bottom: auto;
 }
 
-.push-bottom {
+.push--bottom {
   margin-top: auto;
 }
 
-.push-right {
+.push--right {
   margin-left: auto;
 }
 
-.push-left {
+.push--left {
   margin-right: auto;
 }
 
