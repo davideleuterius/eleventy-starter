@@ -43,16 +43,16 @@
   align-items: center;
 }
 
-.flex-center-between() {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-center-all() {
+.flex-center--all() {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flex-center--between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .flex-center--around() {
@@ -71,11 +71,6 @@
   margin-left: 0;
   padding-left: 0;
 }
-
-// NEEDS CONVERTING TO LESS
-//@mixin split-bg($start, $end, $split: 50%) {
-  //background: linear-gradient(180deg, $start $split, $end $split, $end 100%);
-//}
 
 
 .sr-only {
