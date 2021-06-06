@@ -1,0 +1,24 @@
+.container() {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  max-width: unit(@container-width, px);
+
+  @media @below-container {
+    padding-left: @space-2;
+    padding-right: @space-2;
+  }
+}
+
+.container {
+  .container();
+}
+
+/*
+@media @below-tablet {
+  .breakout-full-width--mobile {
+    .breakout-full-width();
+  }
+}
+*/

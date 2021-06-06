@@ -1,15 +1,23 @@
-const gulp   = require("gulp");
-const sass   = require("gulp-sass");
+const gulp = require("gulp");
+const less = require('gulp-less');
+const prefix = require('gulp-autoprefixer');
+const cssmin = require('gulp-cssmin');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 
 
 gulp.task('css', function() {
-  return gulp.src('./src/styles/main.scss')
-    .pipe(sass({
-        outputStyle: 'expanded'
-      })
-      .on('error', sass.logError))
+  var srcfile = './src/styles/style.less';
+  return gulp.src(srcfile)
+    .pipe(less().on('error', function(err) {
+      console.log(err);
+    }))
+    .pipe(prefix())
+    /*
+    .pipe(cssmin().on('error', function(err) {
+      console.log(err);
+    }))
+    */
     .pipe(gulp.dest('./src/assets/css'));
 });
 
@@ -22,7 +30,7 @@ gulp.task('js', function() {
 });
 
 gulp.task("watch", function() {
-  gulp.watch('./src/styles/**/*.scss', gulp.parallel('css'));
+  gulp.watch('./src/styles/**/*.less', gulp.parallel('css'));
   gulp.watch('./src/scripts/**/*.js', gulp.parallel('js'));
 });
 

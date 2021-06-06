@@ -1,0 +1,114 @@
+.zero-vertical() {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.reset-spacing() {
+  margin: 0;
+  padding: 0;
+}
+
+.centered() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered {
+  .centered();
+}
+
+.centered-block {
+  display: block;
+  .centered();
+}
+
+// BREAKS OUT OF SITE WIDTH CONTAINER TO GO FULL BROWSER WIDTH
+.breakout-full-width() {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.breakout-full-width {
+  .breakout-full-width();
+}
+
+.flex-center() {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center-all() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center--around() {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-grid() {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.list-flat() {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+// NEEDS CONVERTING TO LESS
+//@mixin split-bg($start, $end, $split: 50%) {
+  //background: linear-gradient(180deg, $start $split, $end $split, $end 100%);
+//}
+
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/*
+	Use in conjunction with .sr-only to only display content when it's focused.
+	@note Useful for skip links 
+	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
+	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
+		@author Sylvain Pigeard
+		@see https://github.com/twbs/bootstrap/issues/20732
+*/
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}

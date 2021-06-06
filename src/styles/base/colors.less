@@ -1,0 +1,86 @@
+@color-grey-1: #f9f9f9;
+@color-grey-2: #f5f5f5;
+@color-grey-3: #f3f3f3;
+@color-grey-4: #f1f1f1;
+@color-grey-5: #e6e6e6;
+@color-grey-6: #e3e3e3;
+
+@color-orange: #ED7D34;
+@color-green: #95BF41;
+@color-yellow: #F1B54C;
+@color-blue: #486FAF;
+@color-text: #444;
+
+.color-blue { color: @color-blue; }
+.color-green { color: @color-green; }
+.color-orange { color: @color-orange; }
+.color-yellow { color: @color-yellow; }
+.color-text { color: @color-text; }
+.bg-blue { background-color: @color-blue; }
+.bg-green { background-color: @color-green; }
+.bg-orange { background-color: @color-orange; }
+.bg-yellow { background-color: @color-yellow; } 
+.bg-grey-6 { background-color: @color-grey-6; }
+.bg-grey-5 { background-color: @color-grey-5; }
+.bg-grey-4 { background-color: @color-grey-4; }
+.bg-grey-3 { background-color: @color-grey-3; }
+.bg-grey-2 { background-color: @color-grey-2; }
+.bg-grey-1 { background-color: @color-grey-1; }
+
+.brand-bg {
+  //background: linear-gradient(90deg, @color-orange 0%, @color-orange 33%, @color-yellow 33%, @color-yellow 66%, @color-green 66%);
+  background: linear-gradient(90deg, rgb(237, 125, 51) 0%, rgb(237, 125, 51) 33%, rgb(240, 182, 76) 33%, rgb(240, 182, 76) 66%, rgb(149, 192, 65) 66%);
+}
+
+// BUILD A SERIES OF SHADES / TINTS BASED ON
+// - COLOR
+// - CLASS NAME
+// - SCALE (DISTANCE BETWEEN COLORS)
+// - STEPS (AMOUNT OF SHADES / TINTS)
+// - DARKEN OR LIGHTEN
+
+.color-steps(@color, @name, @scale, @steps, @type, @index: 1) when (@index =< @steps) {
+  & when (@type ='lighten') {
+    .color-@{name}-@{index} {
+      color: lighten(@color, (@index * @scale), relative);
+    }
+    .bg-@{name}-@{index} {
+      background-color: lighten(@color, (@index * @scale), relative);
+    }
+  }
+
+  & when (@type ='darken') {
+    .color-@{name}-@{index} {
+      color: darken(@color, (@index * @scale), relative);
+    }
+    .bg-@{name}-@{index} {
+      background-color: darken(@color, (@index * @scale), relative);
+    }
+  }
+
+  .color-steps(@color, @name, @scale, @steps, @type, (@index + 1));
+}
+
+// LEGACY
+// COLORS
+// @color-white: #fff;
+// @color-black: #111;
+// @color-orange: #DE6026;
+// @color-blue: #0C3455;
+// @color-copy: #444;
+// @color-top-pick: #57B9CD;
+// @color-grey: #707070;
+// @color-gray: @color-grey;
+// @color-grey--mid: #666;
+// @color-gray--mid: @color-grey--mid;
+// @color-grey--alt: lighten(@color-grey, 50%);
+// @color-white-smoke: #F3F3F3;
+// @color-light-charcoal: #e6e6e6;
+// @color-grey--alt: #747474;
+// @color-gray--alt: @color-grey--alt;
+// @color-grey--lt: #F1F1F1;
+// @color-gray--lt: @color-grey--lt;
+// @color-white-smoke--lt: #f5f5f5;
+// @color-gainsboro: #E3E3E3;
+// @color-steam: #F9F9F9;
+// @color-white--alt: @color-steam;

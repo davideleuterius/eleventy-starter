@@ -1,0 +1,22 @@
+@font-path: '/assets/fonts/ag';
+
+.font-face(@family: arial, @filename: 'file',  @weight: normal, @style: normal) {
+  @font-face {
+    font-family: @family;
+    src:
+      local('@{family}'),
+      url('@{font-path}/@{filename}.woff2') format('woff2'),
+      url('@{font-path}/@{filename}.woff') format('woff');
+    font-display: swap;
+    font-weight: @weight;
+    font-style: @style;
+  }
+}
+
+body {
+  .font-face('Ag', 'reg-it', 400, 'italic');
+  .font-face('Ag', 'lt-it', 300, 'italic');
+  .font-face('Ag', 'lt', 300);
+  .font-face('Ag', 'bold', 700);
+  .font-face('Ag', 'reg', 400);
+}

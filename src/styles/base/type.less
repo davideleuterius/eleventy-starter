@@ -1,5 +1,6 @@
-@import '../app/config';
-@import '../app/mixins';
+* {
+  font-family: @font-family--main, sans-serif;
+}
 
 html,
 .root {
@@ -7,45 +8,44 @@ html,
   line-height: 24px;
 }
 
-body,
-.article {
-  font-family: sans-serif;
+body {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-h1,
-.h1 {
+h1 {
+  font-family: @font-family--main, sans-serif;
+  font-weight: 300;
   font-size: 2.375rem;
   line-height: 3rem;
 }
 
-h2,
-.h2 {
+h2 {
+  font-family: @font-family--main, sans-serif;
   font-size: 1.75rem;
+  font-weight: 300;
+  font-style: italic;
   line-height: 3rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+
 }
 
-h3,
-.h3 {
+h3 {
+  font-family: @font-family--main, sans-serif;
   font-size: 1.4rem;
   line-height: 1.5rem;
-  margin-top: 1.5rem;
   margin-bottom: 0rem;
 }
 
-h4,
-.h4 {
+h4 {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 0rem;
 }
 
-h5,
-.h5 {
+h5 {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 1.5rem;
@@ -60,6 +60,7 @@ table,
 blockquote {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
 ul ul,
@@ -70,9 +71,6 @@ ol ul {
   margin-bottom: 0rem;
 }
 
-
-
-/* Let's make sure all's aligned */
 hr,
 .hr {
   border: 1px solid;
@@ -114,6 +112,10 @@ ul li {
   margin-bottom: 0.75rem;
 }
 
+ul.no-bullets {
+    list-style: none;
+}
+
 ul.list-flat {
   list-style: none;
   line-height: 0;
@@ -124,14 +126,23 @@ ul.list-flat {
   }
 }
 
-.text--uc {
+.text-uc {
   text-transform: uppercase;
 }
 
-.text--lc {
+.text-lc {
   text-transform: lowercase;
 }
 
-.text--cap {
+.text-cap {
   text-transform: capitalize;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ff-serif {
+  font-family: 'Merriweather', serif;
+  font-weight: 300;
 }

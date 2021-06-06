@@ -1,0 +1,59 @@
+.callie-nipple {
+  padding-top: @space-3;
+  padding-bottom: @space-3;
+
+
+  p {
+    color: @color-text;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .callie-nipple-img {
+    .centered-block();
+    max-width: 300px;
+    border-radius: 50%;
+  }
+
+  ul.side-list {
+    padding-left: @space-3 + @space-3;
+    padding-top: @space;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    color: @color-text;
+    list-style: none;
+
+    ul {
+      margin-top: @space;
+    }
+  }
+
+  .mobile-list {
+    display: none;
+    
+
+    @media @below-tablet {
+      display: block;
+      margin-top: 0;
+      padding-top: 0;
+      margin-bottom: @space-2;
+
+      ul.side-list {
+        margin-top: 0;
+        padding-left: 0;
+        padding-top: 0;
+
+        ul li {
+          font-size: 1rem;
+        }
+      }
+
+    }
+  }
+
+  @media @below-tablet {
+    .sidebar {
+      display: none;
+    }
+  }
+}

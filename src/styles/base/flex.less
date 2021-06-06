@@ -1,0 +1,99 @@
+.flex { display: flex; }
+.flex-grid { display:flex; flex-wrap: wrap; }
+.flex-grid--justified { display:flex; flex-wrap: wrap; justify-content: space-between; }
+.flex-vertical { display:flex; flex-direction: column; }
+.flex-centered { display: flex; align-items: center; justify-content: center; }
+
+.flex-auto { flex: 1 }
+.flex-grow { flex-grow: 1 }
+.flex-shrink { flex-shrink: 1 }
+
+.items-start { align-items: flex-start; }
+.items-center, .vertical-center { align-items: center; }
+.items-end { align-items: flex-end; } 
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between {  justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-even { justify-content: space-evenly; }
+
+.order-first { order: 0 }
+.order-1 { order: 1 }
+.order-2 { order: 2 }
+.order-3 { order: 3 }
+.order-4 { order: 4 }
+.order-5 { order: 5 }
+.order-6 { order: 6 }
+.order-7 { order: 7 }
+.order-8 { order: 8 }
+.order-last { order: 99999 }
+
+@media @below-tablet {
+  .sm\:flex { display: flex; }
+  .sm\:flex-grid { display:flex; flex-wrap: wrap; }
+  .sm\:flex-grid-vertical { display:flex; flex-direction: column; }
+  .sm\:flex-auto { flex: 1 }
+  .sm\:flex-grow { flex-grow: 1 }
+  .sm\:flex-shrink { flex-shrink: 1 }
+
+  .sm\:items-start { align-items: flex-start; }
+  .sm\:items-center, .sm\:vertical-center { align-items: center; }
+  .sm\:items-end { align-items: flex-end; } 
+  
+  .sm\:justify-between { justify-content: space-between; }
+  .sm\:justify-start { justify-content: flex-start; }
+  .sm\:justify-end { justify-content: flex-end; }
+  .sm\:justify-center { justify-content: center; }
+  .sm\:justify-between {  justify-content: space-between; }
+  .sm\:justify-around { justify-content: space-around; }
+  .sm\:justify-even { justify-content: space-evenly; }
+
+  .sm\:flex-centered { display: flex; align-items: center; justify-content: center; }
+
+  .sm\:order-first { order: 0 }
+  .sm\:order-1 { order: 1 }
+  .sm\:order-2 { order: 2 }
+  .sm\:order-3 { order: 3 }
+  .sm\:order-4 { order: 4 }
+  .sm\:order-5 { order: 5 }
+  .sm\:order-6 { order: 6 }
+  .sm\:order-7 { order: 7 }
+  .sm\:order-8 { order: 8 }
+  .sm\:order-last { order: 99999 }
+}
+
+@media @below-iphone-plus {
+  .xs\:flex { display: flex; }
+  .xs\:flex-grid { display:flex; flex-wrap: wrap; }
+  .xs\:flex-grid-vertical { display:flex; flex-direction: column; }
+  .xs\:flex-auto { flex: 1 }
+  .xs\:flex-grow { flex-grow: 1 }
+  .xs\:flex-shrink { flex-shrink: 1 }
+
+  .xs\:items-start { align-items: flex-start; }
+  .xs\:items-center, .xs\:vertical-center { align-items: center; }
+  .xs\:items-end { align-items: flex-end; } 
+  
+  .xs\:justify-between { justify-content: space-between; }
+  .xs\:justify-start { justify-content: flex-start; }
+  .xs\:justify-end { justify-content: flex-end; }
+  .xs\:justify-center { justify-content: center; }
+  .xs\:justify-between {  justify-content: space-between; }
+  .xs\:justify-around { justify-content: space-around; }
+  .xs\:justify-even { justify-content: space-evenly; }
+
+  .xs\:flex-centered { display: flex; align-items: center; justify-content: center; }
+
+  .xs\:order-first { order: 0 }
+  .xs\:order-1 { order: 1 }
+  .xs\:order-2 { order: 2 }
+  .xs\:order-3 { order: 3 }
+  .xs\:order-4 { order: 4 }
+  .xs\:order-5 { order: 5 }
+  .xs\:order-6 { order: 6 }
+  .xs\:order-7 { order: 7 }
+  .xs\:order-8 { order: 8 }
+  .xs\:order-last { order: 99999 }
+}
