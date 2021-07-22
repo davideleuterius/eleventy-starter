@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: Step Two - Survey
+permalink: step-2.html
+meta_description: 
+---
+{%- from 'macros/forms/inputField.njk' import inputField with context -%}
+{%- from 'macros/forms/stateField.njk' import stateField with context -%}
+{%- from 'macros/forms/checkBoxGroup.njk' import checkboxGroup with context -%}
+{%- from 'macros/forms/iconItem.njk' import iconItem with context -%}
+{%- from 'macros/forms/radioGroup.njk' import radioGroup with context -%}
+{%- from 'macros/forms/rangeField.njk' import rangeField with context -%}
+<main class="survey">
+  <form class="container">
+    <a class="skipLink" href="#">Skip survey and enter payment info</a>
+    <div class="surveyItem">
+      <h2>What type of home do you live in?</h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group:'homeType', id: 'singleOwn', label: 'Single Family Home', hint: 'Own', value:'Single Family Home - Own', icon: 'home-own', selected: true }) }}
+        {{ iconItem({ group:'homeType', id: 'singleRent', label: 'Single Family Home', hint: 'Rent', value: 'Single Family Home - Rent', icon: 'home-rent' }) }}
+        {{ iconItem({ group:'homeType', id: 'mutliOwn', label: 'Apartment or Condo', hint: 'Own', value: 'Apartment or Condo - Own', icon: 'apt-own' }) }}
+        {{ iconItem({ group:'homeType', id: 'mutliRent', label: 'Apartment or Condo', hint: 'Rent', value: 'Apartment or Condo - Own', icon: 'apt-rent' }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>What is the approximate square footage of your home?</h2>
+      <div class="surveyOptions">
+        {{ radioGroup({group: 'homeSize', items: [{ id:'upTo999SqFt', label: 'Up to 999 sq. ft.', value:'Up to 999 sq. ft.' }, { id:'upTo1999SqFt', label:'1,000 - 1,999 sq. ft.', value:'1,000 - 1,999 sq. ft.'}, { id:'upTo2999SqFt', label:'2,000 - 2,999 sq. ft.', value:'2,000 - 2,999 sq. ft.'}, { id:'upTo3999SqFt', label:'3,000 - 3,999 sq. ft.', value:'3,000 - 3,999 sq. ft.', selected: true }, { id:'over4000SqFt', label:'Over 4000 sq. ft.', value:'Over 4000 sq. ft.'}] }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>How do you heat your home?</h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'heatingMethod', id: 'heatFurnace', label: 'Furnace', hint: 'Gas', icon: 'heat-furnace', selected: true }) }}
+        {{ iconItem({ group: 'heatingMethod', id: 'heatPump', label: 'Heat Pump', hint: 'Electric', icon: 'heat-pump' }) }}
+        {{ iconItem({ group: 'heatingMethod', id: 'heatBoiler', label: 'Boiler', hint: 'Gas/Oil', icon: 'heat-boiler' }) }}
+        {{ iconItem({ group: 'heatingMethod', id: 'heatBaseboard', label: 'Baseboard Heat', hint: 'Electric', icon: 'heat-baseboard' }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>How old is your heating system?</h2>
+      <div class="surveyOptions">
+        {{ radioGroup({group: 'heatingSystemAge', items: [{ id:'heatAge1', label: '0 - 7 Years', value: '0 to 7 Years' }, { id:'heatAge2', label:'8 - 14 Years', value:'8 to 14 Years'}, { id:'heatAge3', label:'Over 15 Years', value:'Over 15 Years', selected: true}] }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>How do you cool your home?</h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'coolingMethod', id: 'coolCentral', label: 'Central A/C', icon: 'cool-central', selected: true }) }}
+        {{ iconItem({ group: 'coolingMethod', id: 'coolRoom', label: 'Room A/C', icon: 'cool-room' }) }}
+        {{ iconItem({ group: 'coolingMethod', id: 'coolWindow', label: 'Window A/C', icon: 'cool-window' }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>How old is your cooling system?</h2>
+      <div class="surveyOptions">
+        {{ radioGroup({group: 'coolingSystemAge', items: [{ id:'coolAge1', label: '0 - 7 Years', value: '0 to 7 Years', selected: true }, { id:'coolAge2', label:'8 - 14 Years', value:'8 to 14 Years'}, { id:'coolAge3', label:'Over 15 Years', value:'Over 15 Years'}] }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>What type of thermostat do you have?</h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'thermostatType', id: 'thermostatManual', label: 'Manual', icon: 'thermo-manual'}) }}
+        {{ iconItem({ group: 'thermostatType', id: 'thermostatProgrammable', label: 'Programmable', icon: 'thermo-programmable', selected: true  }) }}
+        {{ iconItem({ group: 'thermostatType', id: 'thermostatSmart', label: 'Smart', icon: 'thermo-smart' }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>What temperature do you keep your thermostat?</h2>
+      <div class="surveyThermostat">
+        {{ rangeField({ id: 'rangeFieldWinter', label: 'Winter', name: 'thermoWinter', min: '60', max: '80', start: '72', step: '1', result: 'thermoWinter' }) }}
+        {{ rangeField({ id: 'rangeFieldSummer', label: 'Summer', name: 'thermoSummer', min: '60', max: '80', start: '72', step: '1', result: 'thermoSummer' }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>What type of water heater do you have?</h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'waterHeaterType', id: 'waterHeaterTank', label: 'Tank', icon: 'water-tank', selected: true }) }}
+        {{ iconItem({ group: 'waterHeaterType', id: 'waterHeaterTankless', label: 'Tankless', icon: 'water-tankless'   }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>What type of fuel does your water heater use?</h2>
+      <div class="surveyOptions">
+        {{ radioGroup({group: 'waterHeaterFuel', items: [{ id:'WHFuelElectric', label: 'Electric', value: 'Electric' }, { id:'WHFuelGas', label:'Gas', value:'Gas', selected: true}, { id:'WHFuelOil', label:'Oil', value:'Oil'}, { id:'WHFuelOther', label:'Other', value:'Other'}] }) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>What smart or wi-fi enable devices do you own? <span>Select all that apply.</span></h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartSpeaker', label: 'Speaker', value: 'Speaker', icon: 'smart-speaker'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartLock', label: 'Door Look', value: 'Door Lock', icon: 'smart-lock'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartVideoDoorbell', label: 'Video Doorbell', value: 'Video Doorbell', icon: 'smart-doorbell'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartPlug', label: 'Smart Plug', value: 'Smart Plug', icon: 'smart-plug'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'securityCam', label: 'Security Camera', value: 'Security Camera', icon: 'smart-cam'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'voiceAssistant', label: 'Voice Assistant', value: 'Voice Assistant', icon: 'smart-voice', selected: true}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartLighting', label: 'Smart Lighting', value: 'Smart Lighting', icon: 'smart-light'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartAppliances', label: 'Smart Appliances', value: 'Smart Appliances', hint: 'Refrigerator, dishwasher, oven, etc.', icon: 'smart-appliance'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartSensors', label: 'Smart Sensors', value: 'Smart Sensors', hint: 'Water leak, window/door, motion, etc.', icon: 'smart-sensor'}) }}
+        {{ iconItem({ group: 'smartDevices', type: 'checkbox', id: 'smartNone', label: 'None', value: 'None', icon: 'none'}) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>Do your have any of these items that are large energy users? <span>Select all that apply.</span></h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'largeEnergyUsers', type: 'checkbox', id: 'largeEnergyPoolPump', label: 'Pool Pump', value: 'Pool Pump', icon: 'large-pool'}) }}
+        {{ iconItem({ group: 'largeEnergyUsers', type: 'checkbox', id: 'largeEnergyDehumidifier', label: 'Dehumidifier', value: 'Dehumidifier', icon: 'large-dehumidifier'}) }}
+        {{ iconItem({ group: 'largeEnergyUsers', type: 'checkbox', id: 'largeEnergyOven', label: 'Electric Oven', value: 'Electric Oven', icon: 'large-oven'}) }}
+        {{ iconItem({ group: 'largeEnergyUsers', type: 'checkbox', id: 'largeEnergyMulti', label: 'Multiple Refrigerators/Freezers', value: 'Multiple Refrigerators/Freezers', icon: 'large-fridge'}) }}
+        {{ iconItem({ group: 'largeEnergyUsers', type: 'checkbox', id: 'largeEnergyVehicle', label: 'Electric Vehicle', value: 'Electric Vehicle', icon: 'large-vehicle', selected: true}) }}
+      </div>
+    </div>
+    <div class="surveyItem">
+      <h2>Do you use solar electricity?</h2>
+      <div class="surveyOptions surveyIcons">
+        {{ iconItem({ group: 'solarUse', id: 'useSolarRooftop', label: 'Yes, I have rooftop panels', value: 'rooftop', icon: 'solar-rooftop', selected: true }) }}
+        {{ iconItem({ group: 'solarUse', id: 'useSolarCommunity', label: 'Yes, I am part of a community solar program', value: 'community', icon: 'solar-community' }) }}
+        {{ iconItem({ group: 'solarUse', id: 'useSolarNo', label: 'No, I do not use any solar electricity', value: 'none', icon: 'none' }) }}
+      </div>
+    </div>
+    <div class="surveyItem surveyEnvironment">
+      <h2>How environmentally focused are you?</h2>
+      <div class="surveyOptions">
+        {{ rangeField({ id: 'rangeFieldEnviroment', name: 'environmentallyFocused', min: '0', max: '100', start: '75', startLabel: 'Not at all', endLabel: 'Very', step: '1' }) }}
+      </div>
+    </div>
+
+    <div class="buttonGroup">
+      <a href="/" class="button">Previous</a> <a class="button" href="step-3.html">Next</a> 
+    </div>
+  </form>
+</main>

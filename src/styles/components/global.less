@@ -1,0 +1,44 @@
+
+
+a {
+  color: @primary;
+  text-decoration: none;
+}
+
+button,
+.button {
+  .flex-center--all();
+  display: inline-flex;
+  margin-left: auto;
+  min-width: 200px;
+  padding: @space + @space-qtr;
+  font-size: 20px;
+  background-color: @secondary;
+  color: #fff;
+  border: 0;
+  transition: background-color .5s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: @primary;
+  }
+}
+
+.button {
+  height: 60px;
+}
+
+ .buttonGroup {
+   padding-top: @space-2;
+   text-align: right;
+
+   button:first-child,
+   .button:first-child {
+     background-color: @grey;
+     margin-right: @space-half;
+
+     &:hover {
+       background-color: @primary;
+     }
+   }
+ }

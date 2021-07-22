@@ -1,0 +1,7 @@
+{% macro inputField(data) %}
+<div class="formField {{ data.wrap_class }}">
+  <label class="formLabel {% if data.req %}req{% endif %}" for="{{ data.id }}"><span>{{ data.label }}{% if data.req %}<sup>*</sup>{% endif %}</span> {% if data.hint %}<span class="hint">{{ data.hint }}</span>{% endif %}</label> 
+  <input {% if data.type %} type="{{ data.type }}" {% else %}type="text"{% endif %} class="{{ data.class }}" id="{{ data.id }}" name="{{ data.id }}" placeholder="{{ data.placeholder }}" value="{{ data.value }}">
+  {% if data.link %}<a class="formLink" href="{{ data.link }}" target="_blank" rel="noopener">{% if data.link_text %}{{ data.link_text }}{% else %}Learn more{% endif %}</a>{% endif %}
+</div>
+{% endmacro %}

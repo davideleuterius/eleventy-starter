@@ -1,0 +1,24 @@
+.topLogoBar {
+  .flex-center--between();
+  .centered-max-width(1280px);
+  padding: @space @space-half;
+
+  img {
+    max-width: 225px;
+    height: auto;
+  }
+
+  a {
+    display: block;
+    font-size: 20px;
+
+    @media @below-container {
+      margin-right: @space;
+    }
+  }
+}
+
+.topStrip {
+  width: 100%;
+  display: block;
+}

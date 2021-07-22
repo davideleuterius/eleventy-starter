@@ -1,0 +1,10 @@
+{% macro stateField(data) %}
+<div class="formField {{ data.wrap_class }}">
+  <label class="formLabel {% if data.req %}req{% endif %}" for="{{ data.id }}"><span>{{ data.label }}{% if data.req %}<sup>*</sup>{% endif %}</span> {% if data.hint %}<span class="hint">{{ data.hint }}</span>{% endif %}</label> 
+  <select id="{{ data.id }}" name="{{ data.id }}">
+    {% for state in stateList %}
+      <option value="{{ state.abbr }}">{{ state.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+{% endmacro %}

@@ -1,0 +1,18 @@
+{% macro iconItem(data) %}
+<div class="iconItem {% if data.selected %}selected{% endif %}">
+  <label class="iconLabel {% if data.type == 'checkbox' %}iconCheckbox{% endif %}" for="{{ data.id }}">
+    <div class="svgWrap">
+      {% include 'svgs/' + data.icon + '.njk' %}
+    </div>
+    <p>{{ data.label }}</p>
+    {% if data.hint %}
+      ({{ data.hint }})
+    {% endif %}
+  </label> 
+  {% if data.type == 'checkbox' %}
+    <input class="iconCheckbox" id="{{ data.id }}" name="{{ data.group }}[]" type="checkbox" value="{{ data.value }}">
+  {% else %}
+    <input class="iconRadio" id="{{ data.id }}" name="{{ data.group }}" type="radio" value="{{ data.value }}">
+  {% endif %}
+</div>
+{% endmacro %}

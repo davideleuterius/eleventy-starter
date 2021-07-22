@@ -3,20 +3,273 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Front End Developer">
+<meta name="description" content="EMaaS Prototype">
 <link rel="canonical" href="/">
 
-<title>Eleventy Starter - David Eleuterius</title>
+<title>Step One - EMaaS</title>
 
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    
+  <header>
+  <div class="topLogoBar">
+    <img src="/assets/img/logo.svg" alt="Constellation" />
+    <p><a href="tel:800-000-0000">1-800-000-0000</a></p>
+  </div>
+  
+</header>
+  <main>
+  <section class="banner">
+    <img class="topStrip" src="/assets/img/top-strip.png" alt="" />
+    <div class="container">
+      <div class="intro">
+        <h1>Headline goes here</h1>
+        <p>Aritati occullo dolupta tusamusamus, qui quo eaquisquis ipsae volum quos anti con necaborporum ius reprati ommoditae odioreperspe es commod quam sitiisi tatatus.</p>
+        <p>Ossitin re est, a audi dit et faccab in proratum serum velendit et enditem poresti nusandi blabor modi quia quiant labore vel ilit, volorio omnisit aut excest, optam quidit as dunt fugit aut volorum sequia nobis elibus arcim quia nam, quidis plaboritio te venit quas evendia.</p>
+      </div>
+      <img src="https://via.placeholder.com/200" alt="img" />
+    </div>
+  </section>
+  <section class="step-1">
+    <div class="container">
+      <form>
+        
+<div class="formField ">
+  <label class="formLabel req" for="firstName"><span>First Name<sup>*</sup></span> </label> 
+  <input type="text" class="" id="firstName" name="firstName" placeholder="" value="">
+  
+</div>
 
-<main>
-<h1>Eleventy Starter v1.0.0</h1>
-<p>Take your site build to Eleventy!</p>
+        
+<div class="formField ">
+  <label class="formLabel req" for="lastName"><span>Last Name<sup>*</sup></span> </label> 
+  <input type="text" class="" id="lastName" name="lastName" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField ">
+  <label class="formLabel req" for="address1"><span>Address<sup>*</sup></span> </label> 
+  <input type="text" class="" id="address1" name="address1" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField ">
+  <label class="formLabel " for="address2"><span>Apartment or Suite #</span> </label> 
+  <input type="text" class="" id="address2" name="address2" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField ">
+  <label class="formLabel req" for="city"><span>City<sup>*</sup></span> </label> 
+  <input type="text" class="" id="city" name="city" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField half">
+  <label class="formLabel req" for="state"><span>State<sup>*</sup></span> </label> 
+  <select id="state" name="state">
+    
+      <option value="AK">Alaska</option>
+    
+      <option value="AL">Alabama</option>
+    
+      <option value="AZ">Arizona</option>
+    
+      <option value="AR">Arkansas</option>
+    
+      <option value="CA">California</option>
+    
+      <option value="CO">Colorado</option>
+    
+      <option value="CT">Connecticut</option>
+    
+      <option value="DE">Delaware</option>
+    
+      <option value="DC">District of Columbia</option>
+    
+      <option value="FL">Florida</option>
+    
+      <option value="GA">Georgia</option>
+    
+      <option value="HI">Hawaii</option>
+    
+      <option value="ID">Idaho</option>
+    
+      <option value="IL">Illinois</option>
+    
+      <option value="IN">Indiana</option>
+    
+      <option value="IA">Iowa</option>
+    
+      <option value="KS">Kansas</option>
+    
+      <option value="KY">Kentucky</option>
+    
+      <option value="LA">Louisiana</option>
+    
+      <option value="ME">Maine</option>
+    
+      <option value="MD">Maryland</option>
+    
+      <option value="MA">Massachusetts</option>
+    
+      <option value="MI">Michigan</option>
+    
+      <option value="MN">Minnesota</option>
+    
+      <option value="MS">Mississippi</option>
+    
+      <option value="MO">Missouri</option>
+    
+      <option value="MT">Montana</option>
+    
+      <option value="NE">Nebraska</option>
+    
+      <option value="NV">Nevada</option>
+    
+      <option value="NH">New Hampshire</option>
+    
+      <option value="NJ">New Jersey</option>
+    
+      <option value="NM">New Mexico</option>
+    
+      <option value="NY">New York</option>
+    
+      <option value="NC">North Carolina</option>
+    
+      <option value="ND">North Dakota</option>
+    
+      <option value="OH">Ohio</option>
+    
+      <option value="OK">Oklahoma</option>
+    
+      <option value="OR">Oregon</option>
+    
+      <option value="PA">Pennsylvania</option>
+    
+      <option value="RI">Rhode Island</option>
+    
+      <option value="SC">South Carolina</option>
+    
+      <option value="SD">South Dakota</option>
+    
+      <option value="TN">Tennessee</option>
+    
+      <option value="TX">Texas</option>
+    
+      <option value="UT">Utah</option>
+    
+      <option value="VT">Vermont</option>
+    
+      <option value="VA">Virginia</option>
+    
+      <option value="WA">Washington</option>
+    
+      <option value="WV">West Virgina</option>
+    
+      <option value="WI">Wisconsin</option>
+    
+      <option value="WY">Wyoming</option>
+    
+  </select>
+</div>
+
+        
+<div class="formField half">
+  <label class="formLabel req" for="zip"><span>Zip Code<sup>*</sup></span> </label> 
+  <input type="text" class="" id="zip" name="zip" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField checkboxGroup full">
+  <input class="checkbox" id="billing_address_different" name="billing_address_different" type="checkbox" value="">
+  <div>
+     <label class="formLabel " for="billing_address_different"><span>My billing/correspondence is different from my service address.</span> </label> 
+    
+  </div>
+</div>
+
+        
+<div class="formField ">
+  <label class="formLabel req" for="email"><span>Email Address<sup>*</sup></span> </label> 
+  <input  type="email"  class="" id="email" name="email" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField ">
+  <label class="formLabel req" for="phone"><span>Phone Number<sup>*</sup></span> </label> 
+  <input  type="number"  class="" id="phone" name="phone" placeholder="" value="">
+  
+</div>
+
+        
+<div class="formField ">
+  <label class="formLabel req" for="pepco"><span>Pepco Service Number<sup>*</sup></span> <span class="hint">ex. 12345678901234567890</span></label> 
+  <input  type="number"  class="" id="pepco" name="pepco" placeholder="" value="">
+  <a class="formLink" href="#" target="_blank" rel="noopener">Help me find my utility account information</a>
+</div>
+
+
+        <a class="termsLink" href="#" target="_blank" rel="noopener">Download Terms and Conditions (PDF)</a>
+
+        
+<div class="formField checkboxGroup full">
+  <input class="checkbox" id="tandcAgree" name="tandcAgree" type="checkbox" value="">
+  <div>
+     <label class="formLabel req" for="tandcAgree"><span>Terms and Conditions Agreement<sup>*</sup></span> </label> 
+    
+      <p>By checking this box, I agree that I have read and understand the Constellation Terms and Conditions and I hereby agree to be bound by them. I certify that I am authorized to make this change for my household and the account. I understand that I can request a written copy of my contract.</p>
+    
+  </div>
+</div>
+
+
+        
+<div class="formField checkboxGroup full bold">
+  <input class="checkbox" id="emailAgree" name="emailAgree" type="checkbox" value="">
+  <div>
+     <label class="formLabel " for="emailAgree"><span>Email Agreement</span> </label> 
+    
+      <p>I agree to receive emails from Constellation regarding my account, special savings offers and energy analysis information. We will never share your email.</p>
+    
+  </div>
+</div>
+
+
+        
+<div class="formField checkboxGroup full bold">
+  <input class="checkbox" id="smsAgree" name="smsAgree" type="checkbox" value="">
+  <div>
+     <label class="formLabel " for="smsAgree"><span>SMS</span> </label> 
+    
+      <p>I hereby consent to receive autodialed and/or pre-recorded telemarketing calls and/or text messages from or on behalf of COnstellation at the telephone number listed above. I agree to receive account and marketing related communications from Constellation. I understand that message and data rates may apply and that this consent is not a condition of purchasing any goods or services from Constellation.</p>
+    
+  </div>
+</div>
+
+
+
+        <a class="button" href="step-2.html">Next</a> 
+    </div>
+  </section>
 </main>
+  <footer>
+    <div class="container">
+      <p>
+        © 2021 Constellation Energy Resources, LLC. The offerings described herein are those of either Constellation NewEnergy, Inc., Constellation NewEnergy-Gas Division, LLC, Constellation Connect, LLC or BGE Home Products & Services, LLC (d/b/a BGE HOME in Maryland, d/b/a Constellation Home in Pennsylvania and d/b/a Constellation in Georgia and Texas), affiliates of each other and ultimate subsidiaries of Exelon Corporation. Exelon Corporation also owns Atlantic City Electric (ACE), Baltimore Gas and Electric Company (BGE), ComEd, Delmarva Power, PECO and Pepco utilities. BGE Home Products & Services, LLC is not the same company as BGE, the regulated utility. The prices of Constellation are not regulated by any state Public Utility Commission. You do not have to buy Constellation electricity, natural gas or any other products to receive the same quality regulated service from your local utility. Brand names and product names are trademarks or service marks of their respective holders. All rights reserved. Errors and omissions excepted.
+      </p>
+
+      <p>
+        Electricity or Gas Supplier License/Order #s: CA 1359, CTA0032; CT 06-07-11, 01-06; DE 00-162; DC GA06-2, EA01-5; GA GM-46; IL 16-0205, 17-0330; IA G-0010; ME 2000-989; MD IR-655, IR-311, IR-500, IR-228, 107-2276; MA GS-030, CS-015; MI U-14867, U-13660; NE NG-0043; NH DM 17-024; NJ GSL-0101, ESL-0016; OH 09-153G, 00-003E; PA A-125095, A-110036; OR ES4, RI 2379(Z1), D-96-6(E); TX 10014, B07305101; VA G-26, G-51, E-11A
+      </p>
+    </div>
+  </footer>
 </body>
 <script src="/assets/js/scripts.js"></script>
 </html>

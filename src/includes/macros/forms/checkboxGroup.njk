@@ -1,0 +1,11 @@
+{% macro checkboxGroup(data) %}
+<div class="formField checkboxGroup {{ data.wrap_class }}">
+  <input class="checkbox" id="{{ data.id }}" name="{{ data.id }}" type="checkbox" value="{{ data.value }}">
+  <div>
+     <label class="formLabel {% if data.req %}req{% endif %}" for="{{ data.id }}"><span>{{ data.label }}{% if data.req %}<sup>*</sup>{% endif %}</span> {% if data.hint %}<span class="hint">{{ data.hint }}</span>{% endif %}</label> 
+    {% if data.text %}
+      <p>{{ data.text }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}

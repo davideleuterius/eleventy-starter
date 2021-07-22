@@ -20,44 +20,57 @@
 // @container-width: 1140;
 
 // MIN-WIDTHS - TARGET *AND* ABOVE
-@iphone-and-above: ~"screen and ( min-width:"unit(@iphone, px)~")";
-@iphone-plus-and-above: ~"screen and ( min-width:"unit(@iphone-plus, px)~")";
-@ipad-and-above: ~"screen and ( min-width:"unit(@ipad, px)~")";
+@phone-and-above: ~"screen and ( min-width:"unit(@phone, px)~")";
 @tablet-and-above: ~"screen and ( min-width:"unit(@tablet, px)~")";
 @desktop-and-above: ~"screen and ( min-width:"unit(@desktop, px)~")";
 @container-and-above: ~"screen and ( min-width:"unit(@container-width, px)~")";
 
 // ABOVE TARGET BP
-@above-iphone: ~"screen and ( min-width:"unit(@iphone + 1, px )~")";
-@above-iphone-plus: ~"screen and ( min-width:"unit(@iphone-plus + 1, px)~")";
-@above-ipad: ~"screen and ( min-width:"unit(@ipad + 1, px)~")";
+// ABOVE TARGET BP
+@above-sm-phone: ~"screen and ( min-width:"unit(@phone-sm + 1, px)~")";
+@above-small-phone: @above-sm-phone;
+@above-phone: ~"screen and ( min-width:"unit(@phone + 1, px)~")";
+@above-sm-tablet: ~ "screen and ( min-width:"unit(@tablet-sm - 1, px) ~ ")";
+@above-small-tablet: @above-sm-tablet;
 @above-tablet: ~"screen and ( min-width:"unit(@tablet + 1, px)~")";
 @above-desktop: ~"screen and ( min-width:"unit(@desktop + 1, px)~")";
-@above-container: ~"screen and ( min-width:"unit(@container-width + 1, px)~")";
 
 // MAX-WIDTHS - TARGET *AND* BELOW
-@iphone-and-below: ~"screen and ( max-width:"unit(@iphone, px)~")";
-@iphone-plus-and-below: ~"screen and ( max-width:"unit(@iphone-plus, px)~")";
-@ipad-and-below: ~"screen and ( max-width:"unit(@ipad, px)~")";
+@phone-and-below: ~"screen and ( max-width:"unit(@phone, px)~")";
 @tablet-and-below: ~"screen and ( max-width:"unit(@tablet, px)~")";
 @desktop-and-below: ~"screen and ( max-width:"unit(@desktop, px)~")";
 @container-and-below: ~"screen and ( max-width:"unit(@container-width, px)~")";
 
 // BELOW TARGET BP
-@below-iphone: ~"screen and ( max-width:"unit(@iphone - 1, px)~")";
-@below-iphone-plus: ~"screen and ( max-width:"unit(@iphone-plus - 1, px)~")";
-@below-ipad: ~"screen and ( max-width:"unit(@ipad - 1, px)~")";
+@below-phone-sm: ~"screen and ( max-width:"unit(@phone-sm - 1, px)~")";
+@below-sm-phone: @below-phone-sm;
+@below-small-phone: @below-phone-sm;
+@below-phone: ~"screen and ( max-width:"unit(@phone - 1, px)~")";
+@below-sm-tablet: ~ "screen and ( max-width:"unit(@tablet-sm - 1, px) ~ ")";
+@below-small-tablet: @below-sm-tablet;
 @below-tablet: ~"screen and ( max-width:"unit(@tablet - 1, px)~")";
 @below-desktop: ~"screen and ( max-width:"unit(@desktop - 1, px)~")";
 @below-container: ~"screen and ( max-width:"unit(@container-width - 1, px)~")";
 
 // RANGES
+@phone-range: ~"screen and ( min-width:"unit(@phone-xs, px)~") and ( max-width:"unit(@tablet-sm, px)~")";
 @tablet-range: ~"screen and ( min-width:"unit(@tablet-sm, px)~") and ( max-width:"unit(@desktop - 1, px)~")";
 @desktop-range: ~"screen and ( min-width:"unit(@desktop, px)~") and ( max-width:"unit(@container-width, px)~")";
 
 // ONLY TARGET WIDTH
-@xs-only: ~"screen and ( width:"unit(@phone-xs, px)~")";
-@iphone-only: ~"screen and ( width:"unit(@iphone, px)~")";
+@phone-xs-only: ~"screen and ( width:"unit(@phone-xs, px)~")";
+@phone-sm-only: ~"screen and ( width:"unit(@phone-sm, px)~")";
 @iphone-plus-only: ~"screen and ( width:"unit(@iphone-plus, px)~")";
-@ipad-only: ~"screen and ( width:"unit(@ipad, px)~")";
+@tablet-only: ~"screen and ( width:"unit(@tablet, px)~")";
+
+// RANGES
+@phone-range: ~"screen and ( min-width:"unit(@phone-xs, px)~") and ( max-width:"unit(@tablet-sm, px)~")";
+@tablet-range: ~"screen and ( min-width:"unit(@tablet-sm, px)~") and ( max-width:"unit(@desktop - 1, px)~")";
+@desktop-range: ~"screen and ( min-width:"unit(@desktop, px)~") and ( max-width:"unit(@container-width, px)~")";
+
+
+// ONLY TARGET WIDTH
+@phone-xs-only: ~"screen and ( width:"unit(@phone-xs, px)~")";
+@phone-sm-only: ~"screen and ( width:"unit(@phone-sm, px)~")";
+@iphone-plus-only: ~"screen and ( width:"unit(@iphone-plus, px)~")";
 @tablet-only: ~"screen and ( width:"unit(@tablet, px)~")";

@@ -1,0 +1,10 @@
+{% macro radioGroup(data) %}
+<div class="radioGroup">
+  {% for item in data.items %}
+  <div class="radioItem {% if item.selected %}selected{% endif %}">
+    <label for="{{ item.id }}">{{ item.label }}</label> 
+    <input type="radio" id="{{ item.id }}" name="{{ data.group }}" value="{{ item.value }}">
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}

@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% include "partials/head.njk" %}
+{% include 'partials/head.njk' %}
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    {{ content | safe }}
+  {% include 'partials/topLogoBar.njk' %}
+  {{ content | safe }}
+  <footer>
+    <div class="container">
+      <p>
+        © 2021 Constellation Energy Resources, LLC. The offerings described herein are those of either Constellation NewEnergy, Inc., Constellation NewEnergy-Gas Division, LLC, Constellation Connect, LLC or BGE Home Products & Services, LLC (d/b/a BGE HOME in Maryland, d/b/a Constellation Home in Pennsylvania and d/b/a Constellation in Georgia and Texas), affiliates of each other and ultimate subsidiaries of Exelon Corporation. Exelon Corporation also owns Atlantic City Electric (ACE), Baltimore Gas and Electric Company (BGE), ComEd, Delmarva Power, PECO and Pepco utilities. BGE Home Products & Services, LLC is not the same company as BGE, the regulated utility. The prices of Constellation are not regulated by any state Public Utility Commission. You do not have to buy Constellation electricity, natural gas or any other products to receive the same quality regulated service from your local utility. Brand names and product names are trademarks or service marks of their respective holders. All rights reserved. Errors and omissions excepted.
+      </p>
+
+      <p>
+        Electricity or Gas Supplier License/Order #s: CA 1359, CTA0032; CT 06-07-11, 01-06; DE 00-162; DC GA06-2, EA01-5; GA GM-46; IL 16-0205, 17-0330; IA G-0010; ME 2000-989; MD IR-655, IR-311, IR-500, IR-228, 107-2276; MA GS-030, CS-015; MI U-14867, U-13660; NE NG-0043; NH DM 17-024; NJ GSL-0101, ESL-0016; OH 09-153G, 00-003E; PA A-125095, A-110036; OR ES4, RI 2379(Z1), D-96-6(E); TX 10014, B07305101; VA G-26, G-51, E-11A
+      </p>
+    </div>
+  </footer>
 </body>
 <script src="/assets/js/scripts.js"></script>
 </html>

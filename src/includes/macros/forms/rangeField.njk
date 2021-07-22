@@ -1,0 +1,24 @@
+{% macro rangeField(data) %}
+<div class="rangeField">
+  {% if data.label %}
+    <label for="{{ data.id }}">{{ data.label }}</label>
+  {% endif %}
+  <div class="rangeWrap">
+    <div class="rangeAmount">
+      {% if data.themo %}
+        <p>{{ data.min }}&deg;</p>
+        <p>{{ data.max }}&deg;</p>
+      {% else %}
+        <p>{{ data.startLabel }}</p>
+        <p>{{ data.endLabel }}</p>
+      {% endif %}
+    </div>
+    <input type="range" class="{{ data.class }}" id="{{ data.id }}" name="{{ data.name }}" min="{{ data.min }}" max="{{ data.max }}" value="{{ data.start }}" step="{{ data.step }}">
+  </div>
+  {% if data.result %}
+  <div id="{{ data.result }}" class="rangeResult">
+    {{data.start}}&deg;
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}

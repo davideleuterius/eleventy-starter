@@ -1,3 +1,4 @@
+// BASELINE MIXINS
 .zero-vertical() {
   margin-top: 0;
   padding-top: 0;
@@ -15,16 +16,60 @@
   margin-right: auto;
 }
 
-.centered {
+.centered-max-width(@max-width) {
+  max-width: @max-width;
   .centered();
 }
 
-.centered-block {
+.centered-width(@width) {
+  width: @width;
+  .centered();
+}
+
+.centered-block() {
   display: block;
   .centered();
 }
 
+.centered-container {
+  .centered-max-width(unit(@container-width, px));
+
+  @media @below-container {
+    padding-left: @space;
+    padding-right: @space;
+  }
+}
+
+.pad-sides(@sides) {
+  padding-left: @sides;
+  padding-right: @sides;
+}
+
+.pad-vertical(@pad) {
+  padding-top: @pad;
+  padding-bottom: @pad;
+}
+
+
+.mobile-padding(@sides) {
+  width: 100%;
+  padding-left: @sides;
+  padding-right: @sides;
+}
+
+.centered-container() {
+  .centered-max-width(unit(@container-width, px));
+}
+
+.pad-container() {
+  @media @below-container {
+    padding-left: @space-2;
+    padding-right: @space-2;
+  }
+}
+
 // BREAKS OUT OF SITE WIDTH CONTAINER TO GO FULL BROWSER WIDTH
+
 .breakout-full-width() {
   width: 100vw;
   position: relative;
@@ -34,19 +79,13 @@
   margin-right: -50vw;
 }
 
-.breakout-full-width {
+.full-width-breakout() {
   .breakout-full-width();
 }
 
 .flex-center() {
   display: flex;
   align-items: center;
-}
-
-.flex-center--all() {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .flex-center--between() {
@@ -61,49 +100,191 @@
   justify-content: space-around;
 }
 
+.flex-center--all() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .flex-grid() {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
-.list-flat() {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
+.flex-grid--justified() {
+  .flex-grid();
+  justify-content: space-between;
 }
 
+.flex-grid--middle() {
+  .flex-grid();
+  align-items: center;
+}
+
+.flex-grid--around() {
+  .flex-grid();
+  justify-content: space-around;
+}
+
+.flex-grid--center() {
+  .flex-grid();
+  justify-content: center;
+}
+
+.split-bg(@start, @end, @split: 50%) {
+  background: linear-gradient(180deg, @start @split, @end @split, @end 100%);
+}
+
+.font-face(@family: arial, @filename: 'file', @weight: normal, @style: normal) {
+  @font-face {
+    font-family: @family;
+    src: local('@{family}'),
+    url('@{font-path}/@{filename}.woff2') format('woff2'),
+    url('@{font-path}/@{filename}.woff') format('woff');
+    font-display: swap;
+    font-weight: @weight;
+    font-style: @style;
+  }
+}
+
+
+.er-cta-button() {
+  display: inline-flex;
+  align-items: center;
+
+  height: 38px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: @secondary;
+  border-radius: 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 0;
+  transition: all 0.5s ease-out;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.15s ease-out;
+  }
+
+  span:last-of-type {
+    margin-left: 10px;
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &:hover {
+    background-color: @primary;
+  }
+}
+
+.fine-print() {
+  font-size: 12px;
+  line-height: 1.5;
+}
 
 .sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /*
-	Use in conjunction with .sr-only to only display content when it's focused.
-	@note Useful for skip links 
-	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
-	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
-	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
-		@author Sylvain Pigeard
-		@see https://github.com/twbs/bootstrap/issues/20732
-*/
-.sr-only-focusable:focus,
-.sr-only-focusable:active {
-  clip: auto !important;
-  -webkit-clip-path: none !important;
-  clip-path: none !important;
-  height: auto !important;
-  margin: auto !important;
-  overflow: visible !important;
-  width: auto !important;
-  white-space: normal !important;
+@track-w: 12.5em;
+@track-h: .25em;
+@thumb-d: 1.5em;
+@track-c: #ccc;
+@filll-c: #95a;
+
+.range-track() {
+  box-sizing: border-box;
+  border: none;
+  width: @track-w;
+  height: @track-h;
+  background: @track-c;
 }
+
+.range-track-fill() {
+   background: linear-gradient($filll-c, $filll-c) 0/ var(--sx) 100% no-repeat $track-c
+}
+
+.range-fill() {
+  height: @track-h;
+  background: @filll-c
+}
+
+ .range-thumb() {
+  box-sizing: border-box;
+  border: none;
+  width: @thumb-d;
+  height: @thumb-d;
+  border-radius: 50%;
+  background: #f90;
+}
+
+[type='range'] {
+
+  &,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min))/var(--range));
+  --sx: calc(.5*#{@thumb-d} + var(--ratio)*(100% - #{@thumb-d}));
+  margin: 0;
+  padding: 0;
+  width: @track-w;
+  height: @thumb-d;
+  background: transparent;
+  font: 1em/1 arial, sans-serif;
+
+  &::-webkit-slider-runnable-track {
+    .track(1);
+  }
+
+  &::-moz-range-track {
+    .track();
+  }
+
+  &::-ms-track {
+    .track();
+  }
+
+  &::-moz-range-progress {
+    .range-fill();
+  }
+
+  &::-ms-fill-lower {
+    .range-fill();
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: .5*(@track-h - @thumb-d);
+    .thumb();
+  }
+
+  &::-moz-range-thumb {
+    .thumb();
+  }
+
+  &::-ms-thumb {
+    margin-top: 0;
+    .thumb();
+  }
+
+  &::-ms-tooltip {
+    display: none
+  }
+}
+*/

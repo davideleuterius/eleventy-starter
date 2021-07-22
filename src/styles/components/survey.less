@@ -1,0 +1,142 @@
+.surveyItem { 
+  padding-bottom: @space-2;
+  border-bottom: 1px dashed #777;
+
+  h2 span {
+    font-size: 18px;
+    font-style: italic;
+    color: @text;
+  }
+
+  .surveyOptions {
+    .flex-grid--center();
+
+    &.surveyIcons {
+      margin-bottom: -@space-2;
+    }
+  }
+}
+
+.iconItem {
+  .pad-sides(@space);
+  margin-bottom: @space-2;
+  width: 225px;
+  text-align: center;
+
+  input {
+    .sr-only();
+  }
+  
+
+  .svgWrap {
+    //height: 165px;
+    //width: 165px;
+    .centered-block();
+    .flex-center--all();
+    //border: 1px solid #777;
+    border-radius: 50%;
+    //background-color: @selected;
+
+    svg path {
+      fill: #333;
+    }
+  }
+
+  
+
+  &.selected .svgWrap {
+    background-color: @selected;
+    //border-color: @selected-text;
+  }
+
+  &.selected svg path {
+     fill: @selected-text; 
+  }
+
+  p {
+    .reset-spacing();
+    margin-top: @space-half;
+    font-weight: 700;
+  }
+}
+
+.radioGroup {
+  .flex-grid--around();
+
+  label {
+    .flex-center--all();
+    margin: 0 @space;
+    width: 180px;
+    height: 50px;
+    font-size: 16px;
+    border: 1px solid #777;
+    border-radius: @space;
+  }
+  input {
+    .sr-only();
+  }
+
+  .radioItem.selected label {
+    font-weight: 700;
+    color: @selected-text;
+    background-color: @selected;
+    border-color: @selected-text;
+  }
+}
+
+
+
+.surveyThermostat {
+  .flex-grid--justified();
+  .rangeField {
+    width: 49%;
+
+    &:first-child {
+      border-right: 1px solid #777;
+    }
+  }
+}
+
+.surveyEnvironment {
+  border: 0;
+
+  .rangeField {
+    width: 90%;
+  }
+}
+
+.rangeField {
+  .flex-center();
+
+  .rangeWrap {
+    flex-grow: 1;
+  }
+
+  label {
+    min-width: 75px;
+    font-weight: 700;
+  }
+
+  .rangeAmount {
+    .flex-grid--justified();
+
+    p {
+      .reset-spacing();
+    }
+  }
+
+  input[type=range] {
+    width: 100%;
+  }
+
+  .rangeResult {
+    .flex-center--all();
+    min-width: 80px;
+    margin-left: @space;
+    margin-right: @space;
+    height: 60px;
+    font-weight: 700;
+    border: 1px solid #777;
+    border-radius: @space;
+  }
+}

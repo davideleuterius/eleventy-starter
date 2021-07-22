@@ -1,0 +1,96 @@
+form {
+  .flex-grid--justified();
+  .pad-container();
+  .pad-vertical(@space-2);
+
+  .formField {
+    width: 49%;
+    margin-bottom: @space + @space-half;
+
+    &.half {
+      width: 23.6%;
+    }
+
+    &.full {
+      width: 100%;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: @space-half;
+
+      sup {
+        display: inline-block;
+        transform: translateY(3px);
+      }
+
+      .hint {
+        font-weight: normal;
+        font-style: italic;
+      }
+    }
+
+    label.req, &.bold {
+      font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select {
+      display: block;
+      height: 48px;
+      width: 100%;
+      padding: @space-qtr;
+      border: 1px solid #9C9E9C;
+      border-radius: 8px;
+    }
+
+    select {
+      background: url(data:image/jpeg;base64,/9j/2wCEABoZGSccJz4lJT5CLy8vQkc9Ozs9R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0cBHCcnMyYzPSYmPUc9Mj1HR0dEREdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR//dAAQAAv/uAA5BZG9iZQBkwAAAAAH/wAARCAAKABIDACIAAREBAhEB/8QAXQAAAgMAAAAAAAAAAAAAAAAAAAEDBAUBAQAAAAAAAAAAAAAAAAAAAAAQAAECBQMFAAAAAAAAAAAAAAEAAgMEEhNRETFBISJCcfARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwAAARECEQA/AN6avU1QNKm9aT5DGvBwfhDKxY0w644WoWzWOHeTyTgYHO/u+UkDQhCD/9k=) no-repeat #fff 97% 50%;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    &.checkboxGroup {
+      display: flex;
+      position: relative;
+    
+      input {
+        margin-right: @space-half;
+      }
+
+      label.formLabel {
+        padding-bottom: 0;
+        transform: translateY(-@space-qtr);
+      }
+
+      p {
+        .reset-spacing();
+      }
+ 
+    }
+
+    .formLink {
+      display: block;
+      padding-top: @space-half;
+      width: 100%;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+   
+  }
+
+   .termsLink {
+     display: block;
+     width: 100%;
+     margin-bottom: @space;
+     line-height: 1.5;
+     color: @secondary;
+     font-weight: bold;
+   }
+
+}

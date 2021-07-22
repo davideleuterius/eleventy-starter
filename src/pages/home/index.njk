@@ -1,12 +1,52 @@
 ---
 layout: base.njk
-title: Eleventy Starter
+title: Step One
 permalink: index.html
-meta_description: 
+step: one
 ---
-
-
+{%- from 'macros/forms/inputField.njk' import inputField with context -%}
+{%- from 'macros/forms/stateField.njk' import stateField with context -%}
+{%- from 'macros/forms/checkBoxGroup.njk' import checkboxGroup with context -%}
+{%- from 'macros/forms/iconItem.njk' import iconItem with context -%}
+{%- from 'macros/forms/radioGroup.njk' import radioGroup with context -%}
+{%- from 'macros/forms/rangeField.njk' import rangeField with context -%}
 <main>
-<h1>Eleventy Starter v{{ pkg.version }}</h1>
-<p>Take your site build to Eleventy!</p>
+  <section class="banner">
+    <img class="topStrip" src="/assets/img/top-strip.png" alt="" />
+    <div class="container">
+      <div class="intro">
+        <h1>Headline goes here</h1>
+        <p>Aritati occullo dolupta tusamusamus, qui quo eaquisquis ipsae volum quos anti con necaborporum ius reprati ommoditae odioreperspe es commod quam sitiisi tatatus.</p>
+        <p>Ossitin re est, a audi dit et faccab in proratum serum velendit et enditem poresti nusandi blabor modi quia quiant labore vel ilit, volorio omnisit aut excest, optam quidit as dunt fugit aut volorum sequia nobis elibus arcim quia nam, quidis plaboritio te venit quas evendia.</p>
+      </div>
+      <img src="https://via.placeholder.com/200" alt="img" />
+    </div>
+  </section>
+  <section class="step-1">
+    <div class="container">
+      <form>
+        {{ inputField({label: 'First Name', id: 'firstName', req: true }) }}
+        {{ inputField({label: 'Last Name', id: 'lastName', req: true }) }}
+        {{ inputField({label: 'Address', id: 'address1', req: true }) }}
+        {{ inputField({label: 'Apartment or Suite #', id: 'address2' }) }}
+        {{ inputField({label: 'City', id: 'city', req: true  }) }}
+        {{ stateField({label: 'State', id: 'state', req: true, wrap_class: 'half' }) }}
+        {{ inputField({label: 'Zip Code', id: 'zip', req: true, wrap_class: 'half' }) }}
+        {{ checkboxGroup({label: 'My billing/correspondence is different from my service address.', id: 'billing_address_different', wrap_class: 'full'}) }}
+        {{ inputField({label: 'Email Address', type: 'email', id: 'email', req: true }) }}
+        {{ inputField({label: 'Phone Number', type: 'number', id: 'phone', req: true }) }}
+        {{ inputField({label: 'Pepco Service Number', hint: 'ex. 12345678901234567890', type: 'number', id: 'pepco', req: true, link: '#', link_text: 'Help me find my utility account information' }) }}
+
+        <a class="termsLink" href="#" target="_blank" rel="noopener">Download Terms and Conditions (PDF)</a>
+
+        {{ checkboxGroup({label: 'Terms and Conditions Agreement', req: true, id: 'tandcAgree', wrap_class: 'full', text: 'By checking this box, I agree that I have read and understand the Constellation Terms and Conditions and I hereby agree to be bound by them. I certify that I am authorized to make this change for my household and the account. I understand that I can request a written copy of my contract.'}) }}
+
+        {{ checkboxGroup({label: 'Email Agreement', id: 'emailAgree', wrap_class: 'full bold', text: 'I agree to receive emails from Constellation regarding my account, special savings offers and energy analysis information. We will never share your email.'}) }}
+
+        {{ checkboxGroup({label: 'SMS', id: 'smsAgree', wrap_class: 'full bold', text: 'I hereby consent to receive autodialed and/or pre-recorded telemarketing calls and/or text messages from or on behalf of COnstellation at the telephone number listed above. I agree to receive account and marketing related communications from Constellation. I understand that message and data rates may apply and that this consent is not a condition of purchasing any goods or services from Constellation.'}) }}
+
+
+        <a class="button" href="step-2.html">Next</a> 
+    </div>
+  </section>
 </main>

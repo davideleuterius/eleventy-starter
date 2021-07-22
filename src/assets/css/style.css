@@ -160,58 +160,175 @@ input[type=email],
 input[type=number] {
   min-height: 44px;
 }
-.centered {
+.centered-container {
+  max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
 }
-.centered-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.breakout-full-width {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+@media screen and ( max-width: 1139px ) {
+  .centered-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 .sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 /*
-	Use in conjunction with .sr-only to only display content when it's focused.
-	@note Useful for skip links 
-	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
-	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
-	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
-		@author Sylvain Pigeard
-		@see https://github.com/twbs/bootstrap/issues/20732
+@track-w: 12.5em;
+@track-h: .25em;
+@thumb-d: 1.5em;
+@track-c: #ccc;
+@filll-c: #95a;
+
+.range-track() {
+  box-sizing: border-box;
+  border: none;
+  width: @track-w;
+  height: @track-h;
+  background: @track-c;
+}
+
+.range-track-fill() {
+   background: linear-gradient($filll-c, $filll-c) 0/ var(--sx) 100% no-repeat $track-c
+}
+
+.range-fill() {
+  height: @track-h;
+  background: @filll-c
+}
+
+ .range-thumb() {
+  box-sizing: border-box;
+  border: none;
+  width: @thumb-d;
+  height: @thumb-d;
+  border-radius: 50%;
+  background: #f90;
+}
+
+[type='range'] {
+
+  &,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min))/var(--range));
+  --sx: calc(.5*#{@thumb-d} + var(--ratio)*(100% - #{@thumb-d}));
+  margin: 0;
+  padding: 0;
+  width: @track-w;
+  height: @thumb-d;
+  background: transparent;
+  font: 1em/1 arial, sans-serif;
+
+  &::-webkit-slider-runnable-track {
+    .track(1);
+  }
+
+  &::-moz-range-track {
+    .track();
+  }
+
+  &::-ms-track {
+    .track();
+  }
+
+  &::-moz-range-progress {
+    .range-fill();
+  }
+
+  &::-ms-fill-lower {
+    .range-fill();
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: .5*(@track-h - @thumb-d);
+    .thumb();
+  }
+
+  &::-moz-range-thumb {
+    .thumb();
+  }
+
+  &::-ms-thumb {
+    margin-top: 0;
+    .thumb();
+  }
+
+  &::-ms-tooltip {
+    display: none
+  }
+}
 */
-.sr-only-focusable:focus,
-.sr-only-focusable:active {
-  clip: auto !important;
-  -webkit-clip-path: none !important;
-  clip-path: none !important;
-  height: auto !important;
-  margin: auto !important;
-  overflow: visible !important;
-  width: auto !important;
-  white-space: normal !important;
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-RegularItalic.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-RegularItalic.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: 'italic';
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-RegularItalic.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-RegularItalic.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: 'italic';
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-Regular.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-Regular.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-Regular.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-Regular.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-Light.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-Light.woff') format('woff');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-Light.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-Light.woff') format('woff');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-Bold.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-Bold.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: local('BentonSans'), url('/assets/fonts/benton/BentonSans-Bold.woff2') format('woff2'), url('/assets/fonts/benton/BentonSans-Bold.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
 }
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'BentonSans', sans-serif;
 }
 html,
 .root {
@@ -223,22 +340,23 @@ body {
   line-height: 1.5rem;
 }
 h1 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'BentonSans', sans-serif;
   font-weight: 300;
   font-size: 2.375rem;
   line-height: 3rem;
+  color: #3B71B4;
 }
 h2 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'BentonSans', sans-serif;
   font-size: 1.75rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
   line-height: 3rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  color: #3B71B4;
 }
 h3 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'BentonSans', sans-serif;
   font-size: 1.4rem;
   line-height: 1.5rem;
   margin-bottom: 0rem;
@@ -309,11 +427,11 @@ ul li {
 ul.no-bullets {
   list-style: none;
 }
-ul.list-flat {
+ul.horizontal {
   list-style: none;
   line-height: 0;
 }
-ul.list-flat li {
+ul.horizontal li {
   display: inline-block;
   margin-bottom: 0;
 }
@@ -333,8 +451,45 @@ ul.list-flat li {
   font-family: 'Merriweather', serif;
   font-weight: 300;
 }
-body {
-  padding: 2rem 3rem;
+a {
+  color: #3B71B4;
+  text-decoration: none;
+}
+button,
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  margin-left: auto;
+  min-width: 200px;
+  padding: 1.25rem;
+  font-size: 20px;
+  background-color: #DF6136;
+  color: #fff;
+  border: 0;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+button:hover,
+.button:hover {
+  background-color: #3B71B4;
+}
+.button {
+  height: 60px;
+}
+.buttonGroup {
+  padding-top: 2rem;
+  text-align: right;
+}
+.buttonGroup button:first-child,
+.buttonGroup .button:first-child {
+  background-color: #9C9E9C;
+  margin-right: 0.5rem;
+}
+.buttonGroup button:first-child:hover,
+.buttonGroup .button:first-child:hover {
+  background-color: #3B71B4;
 }
 .container {
   width: 100%;
@@ -349,10 +504,304 @@ body {
     padding-right: 2rem;
   }
 }
-/*
-@media @below-tablet {
-  .breakout-full-width--mobile {
-    .breakout-full-width();
+.topLogoBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0.5rem;
+}
+.topLogoBar img {
+  max-width: 225px;
+  height: auto;
+}
+.topLogoBar a {
+  display: block;
+  font-size: 20px;
+}
+@media screen and ( max-width: 1139px ) {
+  .topLogoBar a {
+    margin-right: 1rem;
   }
 }
-*/
+.topStrip {
+  width: 100%;
+  display: block;
+}
+.banner {
+  padding-bottom: 2rem;
+  background-color: #3B71B4;
+  color: #fff;
+}
+@media screen and ( max-width: 1139px ) {
+  .banner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+.banner .topStrip {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+.banner .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.banner .intro {
+  width: 75%;
+}
+.banner .intro h1 {
+  margin: 0;
+  padding: 0;
+  color: #D2DB63;
+}
+.banner img {
+  width: 20%;
+  display: block;
+  height: auto;
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@media screen and ( max-width: 1139px ) {
+  form {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+form .formField {
+  width: 49%;
+  margin-bottom: 1.5rem;
+}
+form .formField.half {
+  width: 23.6%;
+}
+form .formField.full {
+  width: 100%;
+}
+form .formField label {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+form .formField label sup {
+  display: inline-block;
+  transform: translateY(3px);
+}
+form .formField label .hint {
+  font-weight: normal;
+  font-style: italic;
+}
+form .formField label.req,
+form .formField.bold {
+  font-weight: 700;
+}
+form .formField input[type="text"],
+form .formField input[type="email"],
+form .formField input[type="number"],
+form .formField select {
+  display: block;
+  height: 48px;
+  width: 100%;
+  padding: 0.25rem;
+  border: 1px solid #9C9E9C;
+  border-radius: 8px;
+}
+form .formField select {
+  background: url(data:image/jpeg;base64,/9j/2wCEABoZGSccJz4lJT5CLy8vQkc9Ozs9R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0cBHCcnMyYzPSYmPUc9Mj1HR0dEREdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR//dAAQAAv/uAA5BZG9iZQBkwAAAAAH/wAARCAAKABIDACIAAREBAhEB/8QAXQAAAgMAAAAAAAAAAAAAAAAAAAEDBAUBAQAAAAAAAAAAAAAAAAAAAAAQAAECBQMFAAAAAAAAAAAAAAEAAgMEEhNRETFBISJCcfARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwAAARECEQA/AN6avU1QNKm9aT5DGvBwfhDKxY0w644WoWzWOHeTyTgYHO/u+UkDQhCD/9k=) no-repeat #fff 97% 50%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+form .formField.checkboxGroup {
+  display: flex;
+  position: relative;
+}
+form .formField.checkboxGroup input {
+  margin-right: 0.5rem;
+}
+form .formField.checkboxGroup label.formLabel {
+  padding-bottom: 0;
+  transform: translateY(-0.25rem);
+}
+form .formField.checkboxGroup p {
+  margin: 0;
+  padding: 0;
+}
+form .formField .formLink {
+  display: block;
+  padding-top: 0.5rem;
+  width: 100%;
+  font-weight: bold;
+  line-height: 1.5;
+}
+form .termsLink {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #DF6136;
+  font-weight: bold;
+}
+.surveyItem {
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed #777;
+}
+.surveyItem h2 span {
+  font-size: 18px;
+  font-style: italic;
+  color: #666666;
+}
+.surveyItem .surveyOptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.surveyItem .surveyOptions.surveyIcons {
+  margin-bottom: -2rem;
+}
+.iconItem {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 2rem;
+  width: 225px;
+  text-align: center;
+}
+.iconItem input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.iconItem .svgWrap {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.iconItem .svgWrap svg path {
+  fill: #333;
+}
+.iconItem.selected .svgWrap {
+  background-color: #D4E1C3;
+}
+.iconItem.selected svg path {
+  fill: #729C4E;
+}
+.iconItem p {
+  margin: 0;
+  padding: 0;
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+.radioGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  width: 180px;
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid #777;
+  border-radius: 1rem;
+}
+.radioGroup input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.radioGroup .radioItem.selected label {
+  font-weight: 700;
+  color: #729C4E;
+  background-color: #D4E1C3;
+  border-color: #729C4E;
+}
+.surveyThermostat {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.surveyThermostat .rangeField {
+  width: 49%;
+}
+.surveyThermostat .rangeField:first-child {
+  border-right: 1px solid #777;
+}
+.surveyEnvironment {
+  border: 0;
+}
+.surveyEnvironment .rangeField {
+  width: 90%;
+}
+.rangeField {
+  display: flex;
+  align-items: center;
+}
+.rangeField .rangeWrap {
+  flex-grow: 1;
+}
+.rangeField label {
+  min-width: 75px;
+  font-weight: 700;
+}
+.rangeField .rangeAmount {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.rangeField .rangeAmount p {
+  margin: 0;
+  padding: 0;
+}
+.rangeField input[type=range] {
+  width: 100%;
+}
+.rangeField .rangeResult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 60px;
+  font-weight: 700;
+  border: 1px solid #777;
+  border-radius: 1rem;
+}
+.payment {
+  min-height: 600px;
+  font-size: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer p {
+  font-size: 12px;
+  line-height: 1.5;
+}
